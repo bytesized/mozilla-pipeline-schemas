@@ -3,16 +3,76 @@
   "type": "object",
   "title": "account-ecosystem",
   "properties": {
-    @ACCOUNT-ECOSYSTEM_ECOSYSTEM_USER_ID_1_JSON@,
-    @ACCOUNT-ECOSYSTEM_PREVIOUS_ECOSYSTEM_USER_IDS_1_JSON@,
+    @TELEMETRY_APPLICATION_1_JSON@,
+    @TELEMETRY_CREATIONDATE_1_JSON@,
+    @TELEMETRY_ID_1_JSON@,
+    "type": {
+      "type": "string",
+      "enum": [ "account-ecosystem" ]
+    },
     "version": {
       "type": "number",
       "minimum": 4,
       "maximum": 4
+    },
+    "payload": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "ecosystemClientId": {
+          "type": "string"
+        },
+        "ecosystemDeviceId": {
+          "type": "string"
+        },
+        "ecosystemUserId": {
+          @ACCOUNT-ECOSYSTEM_ECOSYSTEM_USER_ID_TYPE_1_JSON@,
+          "description": "Account Ecosystem Telemetry user identifier; this value is not present in the original payload sent by clients, but is instead inserted by the pipeline after decrypting and removing ecosystemAnonId"
+        },
+        "previousEcosystemUserIds": {
+          "description": "Previous Account Ecosystem Telemetry identifiers associated with this user; this value is not present in the original payload sent by clients, but is instead inserted by the pipeline after decrypting and removing previousEcosystemAnonIds",
+          "type": "array",
+          "items": {
+            @ACCOUNT-ECOSYSTEM_USER_ID_TYPE_1_JSON@
+          }
+        },
+        "duration": {
+          "type": "number"
+        },
+        "scalars": {
+          "type": "object",
+          "additionalProperties": @TELEMETRY_SCALARS_1_JSON@
+        },
+        "keyedScalars": {
+          "type": "object"
+        },
+        "histograms": {
+          "type": "object"
+        },
+        "keyedHistograms": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "reason",
+        "ecosystemClientId",
+        "ecosystemDeviceId",
+        "duration",
+        "scalars",
+        "keyedScalars",
+        "histograms",
+        "keyedHistograms"
+      ]
     }
   },
   "required": [
-    "ecosystem_user_id",
-    "version"
-    ]
+    "application",
+    "creationDate",
+    "id",
+    "type",
+    "version",
+    "payload"
+  ]
 }
