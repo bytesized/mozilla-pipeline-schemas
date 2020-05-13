@@ -15,33 +15,14 @@
     "channel": "default"
   },
   "payload": {
-    "reason": "shutdown",
     "ecosystemClientId": "unknown",
     "ecosystemDeviceId": "unknown",
     "ecosystemUserId": "abcdefghabcdefghabcdefghabcdefgh",
     "previousEcosystemUserIds": ["1bcdefghabcdefghabcdefghabcdefgh"],
-    "duration": 78,
     "scalars": {
       "parent": {
         "browser.engagement.total_uri_count": 3
       }
-    },
-    "keyedScalars": {},
-    "histograms": {
-      "content": {},
-      "extension": {},
-      "parent": {},
-      "gpu": {},
-      "dynamic": {},
-      "socket": {}
-    },
-    "keyedHistograms": {
-      "content": {},
-      "extension": {},
-      "parent": {},
-      "gpu": {},
-      "dynamic": {},
-      "socket": {}
     }
   }
 }

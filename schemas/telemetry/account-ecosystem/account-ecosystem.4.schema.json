@@ -58,9 +58,6 @@
     },
     "payload": {
       "properties": {
-        "duration": {
-          "type": "number"
-        },
         "ecosystemClientId": {
           "type": "string"
         },
@@ -72,46 +69,30 @@
           "pattern": "[a-zA-z0-9]{32}",
           "type": "string"
         },
-        "histograms": {
-          "type": "object"
-        },
-        "keyedHistograms": {
-          "type": "object"
-        },
-        "keyedScalars": {
-          "type": "object"
-        },
         "previousEcosystemUserIds": {
           "description": "Previous Account Ecosystem Telemetry identifiers associated with this user; this value is not present in the original payload sent by clients, but is instead inserted by the pipeline after decrypting and removing previousEcosystemAnonIds",
           "items": {},
           "type": "array"
         },
-        "reason": {
-          "type": "string"
-        },
         "scalars": {
-          "additionalProperties": {
-            "additionalProperties": {
-              "type": [
-                "integer",
-                "string",
-                "boolean"
-              ]
-            },
-            "type": "object"
+          "properties": {
+            "parent": {
+              "additionalProperties": {
+                "type": [
+                  "integer",
+                  "string",
+                  "boolean"
+                ]
+              },
+              "type": "object"
+            }
           },
           "type": "object"
         }
       },
       "required": [
-        "reason",
         "ecosystemClientId",
-        "ecosystemDeviceId",
-        "duration",
-        "scalars",
-        "keyedScalars",
-        "histograms",
-        "keyedHistograms"
+        "ecosystemDeviceId"
       ],
       "type": "object"
     },
